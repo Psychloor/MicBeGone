@@ -8,7 +8,7 @@ namespace MicBeGone
 
         public const string Company = null;
 
-        public const string DownloadLink = "";
+        public const string DownloadLink = "https://github.com/Psychloor/MicBeGone/releases";
 
         public const string Name = "Mic Be Gone";
         
