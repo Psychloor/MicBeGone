@@ -16,7 +16,7 @@ namespace MicBeGone
 
     using MelonLoader;
 
-    public class MicBeGoneMod : MelonMod
+    public sealed class MicBeGoneMod : MelonMod
     {
 
         private const string SettingsCategory = "MicBeGone";
