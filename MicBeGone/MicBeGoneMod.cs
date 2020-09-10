@@ -10,15 +10,9 @@ using BuildInfo = MicBeGone.BuildInfo;
 namespace MicBeGone
 {
 
-    using System.Reflection;
-
-    using Harmony;
-
     using MelonLoader;
 
     using UnityEngine;
-
-    using VRC.Core;
 
     public sealed class MicBeGoneMod : MelonMod
     {
@@ -36,6 +30,12 @@ namespace MicBeGone
             micEnabled = MelonPrefs.GetBool(SettingsCategory, "MicEnabled");
         }
 
+        public override void OnModSettingsApplied()
+        {
+            micEnabled = MelonPrefs.GetBool(SettingsCategory, "MicEnabled");
+            ApplySettings();
+        }
+
         public override void VRChat_OnUiManagerInit()
         {
             hudVoiceIndicator = Object.FindObjectOfType<HudVoiceIndicator>();
@@ -48,12 +48,6 @@ namespace MicBeGone
             if (micEnabled) return;
             hudVoiceIndicator.field_Private_Image_0.enabled = false;
             hudVoiceIndicator.field_Private_Image_1.enabled = false;
-        }
-
-        public override void OnModSettingsApplied()
-        {
-            micEnabled = MelonPrefs.GetBool(SettingsCategory, "MicEnabled");
-            ApplySettings();
         }
 
     }
